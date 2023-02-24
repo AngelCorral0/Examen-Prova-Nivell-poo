@@ -10,29 +10,32 @@ Class Equipo{
         $this->jugadors = $jugadors;
     }
 
-    public function goleador()
+    public function maximGoleador()
     {
         $maxGoleador = 0;
+       
         foreach($this->jugadors as $jugador){
            
             if($maxGoleador < $jugador->goles){
                 $maxGoleador = $jugador->goles;
-              
-                echo"El jugador: $jugador->nom es el que más goles ha hecho con: $maxGoleador <br>";
             }
+            $jugadorNom = $jugador->nom;
         }
+        echo"El jugador: $jugadorNom es el que más goles ha hecho con: $maxGoleador <br>";
+
     }
 
-    public function menosFaltas()
+    public function jugadorConMenosFaltas()
     {
-        $menosFaltas = 100;
+        $jugadorMenosFaltas = 999;
+                
         foreach($this->jugadors as $jugador){
-            if($jugador->faltas_h < $jugador){
-                $menosFaltas = $jugador->faltas_h;
-        
-                echo"El jugador $jugador->nom es el que menos faltas ha hecho con: $menosFaltas <br>";
+            if($jugador->faltas_h < $jugadorMenosFaltas){
+                $jugadorMenosFaltas = $jugador->faltas_h;
             }
+            $jugadorNom = $jugador->nom; 
         }
+        echo"El jugador $jugadorNom es el que menos faltas ha hecho con: $jugadorMenosFaltas <br>";
 
     }
 }
